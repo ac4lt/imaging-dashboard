@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  node-red:
+    image: nodered/node-red:latest
+    container_name: astrodash
+    hostname: astrodash
+    restart: always
+    environment:
+      - TZ=America/New_York
+      - ASTRODASH_MQTT_SERVER=<mqtt broker>
+      - ASTRODASH_MQTT_PORT=1883
+      - ASTRODASH_MQTT_USER=<mqtt user name>
+      - ASTRODASH_MQTT_PASSWORD=<mqtt password>
+      - ASTRODASH_UNIFI_CONTROLLER=<hostname or ip of unifi controller>
+      - ASTRODASH_UNIFI_USER=<unifi admin user name>
+      - ASTRODASH_UNIFI_PASSWORD=<unifi admin user password>
+      - ASTRODASH_PUSHOVER_USER_KEY=<<pushover user key>
+      - ASTRODASH_PUSHOVER_API_TOKEN=<pusheover API token>
+    #ports:
+    #  - "1880:1880"
+    #networks:
+      macvlan_10_1_10_240_physical:
+        ipv4_address: 10.1.10.250
+    volumes:
+      - /share/Container/astrodash/data:/data
+      - /share/Container/astrodash/statichttp:/statichttp
+      - /share/Container/astrodash/sqmstudy:/sqmstudy
+      - /share/allsky:/statichttp/allsky
+      - /share/weatherdata:/weatherdata
+networks:
+  macvlan_10_1_10_240_physical:
+    external: true
