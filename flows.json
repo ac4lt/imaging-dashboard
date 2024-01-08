@@ -98,7 +98,7 @@
     {
         "id": "a99d58eea4e0c4c9",
         "type": "tab",
-        "label": "safety monitor",
+        "label": "safety",
         "disabled": false,
         "info": "This flow evaluates safety conditions and if unsafe alerts to pushove.\n\nIt also writes a file that can be used by the ASCOM Generic File Safety Monitor fi the safety.txt node is enabled.",
         "env": []
@@ -1506,6 +1506,39 @@
         "h": 122
     },
     {
+        "id": "f84dae842559922c",
+        "type": "group",
+        "z": "1b5ddca5773a54ff",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "2eefac8da5b2f65c",
+            "ebeeb4aed08381fd",
+            "6950f645cef5c74e",
+            "450cdb228274943e",
+            "e7fd33537cfc9541",
+            "f8c15cb7e05aae5d",
+            "e083e7b40f446fa5",
+            "9fac72e78495e589",
+            "02e398b48cc15356",
+            "742f69094ec4d777",
+            "9edf20a115d289b5",
+            "c96d2ae60b19cc8d",
+            "910e95e4314ffc6e"
+        ],
+        "x": 74,
+        "y": 1459,
+        "w": 1092,
+        "h": 202
+    },
+    {
         "id": "1e52f8af9bd8e83a",
         "type": "mqtt-broker",
         "name": "mqtt",
@@ -1974,6 +2007,37 @@
         "name": "spacer",
         "group": "e14ef026db2f9ff2",
         "order": 30,
+        "width": "6",
+        "height": "1"
+    },
+    {
+        "id": "b365f2b84477ee54",
+        "type": "ui_group",
+        "name": "Safety",
+        "tab": "dce8796b9d4b0fe7",
+        "order": 8,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9a929b8bbc047fc3",
+        "type": "ui_spacer",
+        "z": "1b5ddca5773a54ff",
+        "name": "spacer",
+        "group": "b365f2b84477ee54",
+        "order": 2,
+        "width": "6",
+        "height": "1"
+    },
+    {
+        "id": "92c53735457f56d4",
+        "type": "ui_spacer",
+        "z": "1b5ddca5773a54ff",
+        "name": "spacer",
+        "group": "b365f2b84477ee54",
+        "order": 4,
         "width": "6",
         "height": "1"
     },
@@ -9186,8 +9250,8 @@
         "links": [
             "e4b6de8f61ab2df6"
         ],
-        "x": 515,
-        "y": 1760,
+        "x": 445,
+        "y": 1580,
         "wires": [
             [
                 "53b60cefe4a30cd1"
@@ -11064,7 +11128,7 @@
         "type": "function",
         "z": "a99d58eea4e0c4c9",
         "name": "check safety conditions",
-        "func": "msg = {};\n\nif (global.get(\"cloudCover\") == 100 ||\n    global.get(\"avgwindspeed\") > 10 ||\n    global.get(\"rain\") ||\n    global.get(\"rainInRegion\") ||\n    global.get(\"pop\") > 5 || \n    global.get(\"forecastPrecip\") > 0 ||\n    global.get(\"humidity\") > 99) {\n    console.log(\"clouds = \" + global.get(\"cloudCover\") + \n                \", avgWindSpeed = \" + global.get(\"avgwindspeed\") + \n                \", humidity = \" + global.get(\"humidity\") +\n                \", rain = \" + global.get(\"rain\") + \n                \", rainInRegion = \" + global.get(\"rainInRegion\") +\n                \", pop = \" + global.get(\"pop\") +\n                \", forecastPrecip = \" + global.get(\"forecastPrecip\"))\n    msg.payload = \"UNSAFE\";\n    global.set(\"is_safe\", false);\n}\nelse {\n    msg.payload = \"safe\";\n    global.set(\"is_safe\", true);\n}\n\nreturn msg;",
+        "func": "msg = {};\n\nif (global.get(\"cloudCover\") == 100 ||\n    global.get(\"avgwindspeed\") > global.get(\"max_safe_avg_wind_speed\") ||\n    global.get(\"rain\") ||\n    global.get(\"rainInRegion\") ||\n    global.get(\"pop\") > global.get(\"max_safe_pop\") || \n    global.get(\"forecastPrecip\") > 0 ||\n    global.get(\"humidity\") > global.get(\"max_safe_humidity\")) {\n    console.log(\"clouds = \" + global.get(\"cloudCover\") + \n                \", avgWindSpeed = \" + global.get(\"avgwindspeed\") + \n                \", humidity = \" + global.get(\"humidity\") +\n                \", rain = \" + global.get(\"rain\") + \n                \", rainInRegion = \" + global.get(\"rainInRegion\") +\n                \", pop = \" + global.get(\"pop\") +\n                \", forecastPrecip = \" + global.get(\"forecastPrecip\"))\n    msg.payload = \"UNSAFE\";\n    global.set(\"is_safe\", false);\n}\nelse {\n    msg.payload = \"safe\";\n    global.set(\"is_safe\", true);\n}\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -13666,11 +13730,355 @@
         "height": 0,
         "name": "version",
         "label": "Version",
-        "format": "2.1.0",
+        "format": "2.2.0",
         "layout": "col-center",
         "className": "",
-        "x": 1540,
-        "y": 540,
+        "x": 1080,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "2eefac8da5b2f65c",
+        "type": "ui_text_input",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "max safe humidity",
+        "label": "Maximum Safe Humidity",
+        "tooltip": "Enter the maximum humidity percentage that is considered safe",
+        "group": "b365f2b84477ee54",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 650,
+        "y": 1540,
+        "wires": [
+            [
+                "ebeeb4aed08381fd"
+            ]
+        ]
+    },
+    {
+        "id": "ebeeb4aed08381fd",
+        "type": "change",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "max_safe_humidity",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 970,
+        "y": 1540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6950f645cef5c74e",
+        "type": "inject",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "inject once at startup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 1540,
+        "wires": [
+            [
+                "450cdb228274943e"
+            ]
+        ]
+    },
+    {
+        "id": "450cdb228274943e",
+        "type": "change",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "max_safe_humidity",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 1540,
+        "wires": [
+            [
+                "2eefac8da5b2f65c"
+            ]
+        ]
+    },
+    {
+        "id": "e7fd33537cfc9541",
+        "type": "ui_text_input",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "max safe pop",
+        "label": "Maximum Safe Probability of Precipitation",
+        "tooltip": "Enter the maximum safe probability of precipitation",
+        "group": "b365f2b84477ee54",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 640,
+        "y": 1580,
+        "wires": [
+            [
+                "f8c15cb7e05aae5d"
+            ]
+        ]
+    },
+    {
+        "id": "f8c15cb7e05aae5d",
+        "type": "change",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "max_safe_pop",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 1580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e083e7b40f446fa5",
+        "type": "inject",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "inject once at startup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 1580,
+        "wires": [
+            [
+                "9fac72e78495e589"
+            ]
+        ]
+    },
+    {
+        "id": "9fac72e78495e589",
+        "type": "change",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "max_safe_pop",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 1580,
+        "wires": [
+            [
+                "e7fd33537cfc9541"
+            ]
+        ]
+    },
+    {
+        "id": "02e398b48cc15356",
+        "type": "ui_text_input",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "max safe avg wind speed",
+        "label": "Maximum Safe Average Wind Speed",
+        "tooltip": "Enter the maximum safe wind speed (in whatever units you have configured)",
+        "group": "b365f2b84477ee54",
+        "order": 5,
+        "width": "0",
+        "height": "0",
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 670,
+        "y": 1620,
+        "wires": [
+            [
+                "742f69094ec4d777"
+            ]
+        ]
+    },
+    {
+        "id": "742f69094ec4d777",
+        "type": "change",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "max_safe_avg_wind_speed",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 990,
+        "y": 1620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9edf20a115d289b5",
+        "type": "inject",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "inject once at startup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 1620,
+        "wires": [
+            [
+                "c96d2ae60b19cc8d"
+            ]
+        ]
+    },
+    {
+        "id": "c96d2ae60b19cc8d",
+        "type": "change",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "max_safe_avg_wind_speed",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 1620,
+        "wires": [
+            [
+                "02e398b48cc15356"
+            ]
+        ]
+    },
+    {
+        "id": "910e95e4314ffc6e",
+        "type": "comment",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "Safety Settings",
+        "info": "Some safety settings are confiurable to set the maximum safe values. Those are defined here.",
+        "x": 260,
+        "y": 1500,
         "wires": []
     },
     {
@@ -18238,8 +18646,8 @@
         "rules": [
             {
                 "t": "gt",
-                "v": "5",
-                "vt": "str"
+                "v": "max_safe_pop",
+                "vt": "global"
             },
             {
                 "t": "else"
@@ -18441,8 +18849,8 @@
         "rules": [
             {
                 "t": "gt",
-                "v": "99",
-                "vt": "num"
+                "v": "max_safe_humidity",
+                "vt": "global"
             },
             {
                 "t": "else"
