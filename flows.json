@@ -831,9 +831,6 @@
             "color": "#a4a4a4"
         },
         "nodes": [
-            "192184e5f1c5fe64",
-            "cdcc47da57f657b4",
-            "e2a4af863e96b514",
             "1b2e264647e2677e",
             "43454f7d5c222c5b",
             "c5f41daf91a1ac14",
@@ -852,18 +849,14 @@
             "b2c8e00cbf566189",
             "c1193ca923c266ac",
             "96ccca690a1ad6b1",
-            "03d9ec4677712554",
-            "a055499e7d9d92bf",
             "ebb4b5ce7c56b276",
-            "c31cb9ee8501a6da",
-            "ea7d1c56f7c26c4e",
             "90e8324e29722d59",
             "aca3155682d9d653"
         ],
         "x": 54,
-        "y": 459,
+        "y": 559,
         "w": 1232,
-        "h": 442
+        "h": 362
     },
     {
         "id": "f7c384760b13d7c8",
@@ -956,7 +949,7 @@
             "833093d3bd3c2fe0"
         ],
         "x": 54,
-        "y": 59,
+        "y": 159,
         "w": 1032,
         "h": 382
     },
@@ -988,39 +981,10 @@
             "d1a938bf4265b46d",
             "736d9a09a1cda93a"
         ],
-        "x": 74,
-        "y": 959,
+        "x": 54,
+        "y": 939,
         "w": 972,
         "h": 222
-    },
-    {
-        "id": "ed637ef102bca13d",
-        "type": "group",
-        "z": "1b5ddca5773a54ff",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "3b6b7c8cb96334cf",
-            "d7540ece41db2438",
-            "e2bdb0e079ef28c8",
-            "d9110bb83650b288",
-            "07f01549568fee8e",
-            "fc8bfb5cf7faca5c",
-            "f6f364d406009a15",
-            "6468b7997342c13a",
-            "a05091e0197c0c13"
-        ],
-        "x": 74,
-        "y": 1219,
-        "w": 972,
-        "h": 162
     },
     {
         "id": "520dd1471f8040af",
@@ -1539,8 +1503,8 @@
             "c96d2ae60b19cc8d",
             "910e95e4314ffc6e"
         ],
-        "x": 74,
-        "y": 1459,
+        "x": 54,
+        "y": 1179,
         "w": 1092,
         "h": 202
     },
@@ -2247,6 +2211,30 @@
         "h": 122
     },
     {
+        "id": "8bebfaafc473c3bc",
+        "type": "group",
+        "z": "1b5ddca5773a54ff",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "4254b9eb76f28133",
+            "fe2f37ea1d172055",
+            "6448d528379519e1",
+            "da9f0f62d6a3aaf8"
+        ],
+        "x": 154,
+        "y": 19,
+        "w": 452,
+        "h": 122
+    },
+    {
         "id": "1e52f8af9bd8e83a",
         "type": "mqtt-broker",
         "name": "mqtt",
@@ -2627,16 +2615,6 @@
         "className": ""
     },
     {
-        "id": "437aa4e89b544afe",
-        "type": "ui_spacer",
-        "z": "1b5ddca5773a54ff",
-        "name": "spacer",
-        "group": "dd7df2b889616f2c",
-        "order": 2,
-        "width": "6",
-        "height": "1"
-    },
-    {
         "id": "aa553bc5f496ab04",
         "type": "ui_group",
         "name": "Systems",
@@ -2664,27 +2642,6 @@
         "name": "spacer",
         "group": "aa553bc5f496ab04",
         "order": 4,
-        "width": "6",
-        "height": "1"
-    },
-    {
-        "id": "30ae618a5027ffdc",
-        "type": "ui_group",
-        "name": "Ambient Weather",
-        "tab": "dce8796b9d4b0fe7",
-        "order": 6,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "c1c42a6f704be7f6",
-        "type": "ui_spacer",
-        "z": "1b5ddca5773a54ff",
-        "name": "spacer",
-        "group": "30ae618a5027ffdc",
-        "order": 2,
         "width": "6",
         "height": "1"
     },
@@ -3098,7 +3055,7 @@
         "z": "8eb51985a4dd8f36",
         "g": "8f5131c5e5423be3",
         "name": "Rain in region?",
-        "func": "//const { AerisWeather } = require('@aerisweather/javascript-sdk');\n\n//const AerisWeather = global.get(\"AerisWeather\");\nconst aeris = new aw.AerisWeather(global.get(\"aw_client_id\"), global.get(\"aw_client_secret\"));\n\n// create the request instance\nconst request = aeris.api();\n\n// configure the request endpoint\nrequest.endpoint('observations');\n\n// set the place to request data for\nlatlong = global.get(\"lattitude\") + \",\" + global.get(\"longitude\");\n//console.log('latlong = ' + latlong);\nrequest.place(latlong);\nrequest.radius(\"25mi\");\nrequest.limit(50);\nrequest.filter('allstations,wxrain');\n\nvar precipInRegion = false;\n\n// perform the request and output the data\nrequest.get().then((result) => {\n    // returned data will be accessible on `result.data` \n    //console.log(JSON.stringify(result.data, null, 4));\n    console.log(\"length = \" + result.data.length);\n    for (let n in result.data) {\n        station = result.data[n];\n        //console.log(JSON.stringify(station, null, 4));    \n        ob = station.ob;\n        //console.log(JSON.stringify(ob, null, 4));         \n        //console.log(\"--------------------\");\n        if (ob != null && ob.precipIN > 0) {\n            precipInRegion = true;\n            console.log(\"--------------------\");\n            console.log(JSON.stringify(station, null, 4));\n            break;\n        }\n    }\n    \n    var newmsg = {};\n    newmsg.topic = \"precip in region\";\n    newmsg.payload = precipInRegion;\n    node.send(newmsg);\n});\n\nreturn null;",
+        "func": "const aeris = new aw.AerisWeather(env.get(\"ASTRODASH_AERIS_WEATHER_CLIENT_ID\"), env.get(\"ASTRODASH_AERIS_WEATHER_CLIENT_SECRET\"));\n\n// create the request instance\nconst request = aeris.api();\n\n// configure the request endpoint\nrequest.endpoint('observations');\n\n// set the place to request data for\nlatlong = global.get(\"lattitude\") + \",\" + global.get(\"longitude\");\n//console.log('latlong = ' + latlong);\nrequest.place(latlong);\nrequest.radius(\"25mi\");\nrequest.limit(50);\nrequest.filter('allstations,wxrain');\n\nvar precipInRegion = false;\n\n// perform the request and output the data\nrequest.get().then((result) => {\n    // returned data will be accessible on `result.data` \n    //console.log(JSON.stringify(result.data, null, 4));\n    console.log(\"length = \" + result.data.length);\n    for (let n in result.data) {\n        station = result.data[n];\n        //console.log(JSON.stringify(station, null, 4));    \n        ob = station.ob;\n        //console.log(JSON.stringify(ob, null, 4));         \n        //console.log(\"--------------------\");\n        if (ob != null && ob.precipIN > 0) {\n            precipInRegion = true;\n            console.log(\"--------------------\");\n            console.log(JSON.stringify(station, null, 4));\n            break;\n        }\n    }\n    \n    var newmsg = {};\n    newmsg.topic = \"precip in region\";\n    newmsg.payload = precipInRegion;\n    node.send(newmsg);\n});\n\nreturn null;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -4138,7 +4095,7 @@
         "z": "8eb51985a4dd8f36",
         "g": "568693adae137d4f",
         "name": "current forecast",
-        "func": "const aeris = new aw.AerisWeather(global.get(\"aw_client_id\"), global.get(\"aw_client_secret\"));\n\n// create the request instance\nconst request = aeris.api();\n\n// configure the conditions endpoint\nrequest.endpoint('forecasts');\n\n// set the place to request data for\nlatlong = global.get(\"lattitude\") + \",\" + global.get(\"longitude\");\n//console.log('latlong = ' + latlong);\nrequest.place(latlong);\n\n// configure the request options\nrequest.filter('6hr').limit(2);\n\n//request.fields('fields=periods.dateTimeISO,loc,periods.maxTempF,periods.minTempF,periods.pop,periods.precipIN,periods.maxHumidity,periods.minHumidity,periods.maxDewpointF,periods.minDewpointF,periods.windSpeedMaxMPH,periods.windDirMax,periods.weather');\nmsg0 = {};\nmsg1 = {};\n\n// perform the request and output the data\nrequest.get().then((result) => {\n    // returned data will be accessible on `result.data` \n    period0 = result.data[0]['periods'][0];\n    period1 = result.data[0]['periods'][1];    \n\n    //console.log(JSON.stringify(period0, null, 4));\n    //console.log(\"period0.weatherPrimary\");\n    //console.log(period0[\"weatherPrimary\"]);\n    //console.log(\"period1.weatherPrimary\");\n    //console.log(period1[\"weatherPrimary\"]);\n    \n    msg0.forecast = period0[\"weatherPrimary\"];\n    msg1.forecast = period1[\"weatherPrimary\"];\n    \n    msg0.pop = Math.max(period0[\"pop\"], period1[\"pop\"]);\n    msg0.precip = period0[\"precipIN\"] + period1[\"precipIN\"] + \n        period0[\"precipMM\"] + period1[\"precipMM\"]\n    \n    node.send([msg0, msg1]);\n    node.done();\n});\n\nreturn;",
+        "func": "const aeris = new aw.AerisWeather(env.get(\"ASTRODASH_AERIS_WEATHER_CLIENT_ID\"), env.get(\"ASTRODASH_AERIS_WEATHER_CLIENT_SECRET\"));\n\n// create the request instance\nconst request = aeris.api();\n\n// configure the conditions endpoint\nrequest.endpoint('forecasts');\n\n// set the place to request data for\nlatlong = global.get(\"lattitude\") + \",\" + global.get(\"longitude\");\n//console.log('latlong = ' + latlong);\nrequest.place(latlong);\n\n// configure the request options\nrequest.filter('6hr').limit(2);\n\n//request.fields('fields=periods.dateTimeISO,loc,periods.maxTempF,periods.minTempF,periods.pop,periods.precipIN,periods.maxHumidity,periods.minHumidity,periods.maxDewpointF,periods.minDewpointF,periods.windSpeedMaxMPH,periods.windDirMax,periods.weather');\nmsg0 = {};\nmsg1 = {};\n\n// perform the request and output the data\nrequest.get().then((result) => {\n    // returned data will be accessible on `result.data` \n    period0 = result.data[0]['periods'][0];\n    period1 = result.data[0]['periods'][1];    \n\n    //console.log(JSON.stringify(period0, null, 4));\n    //console.log(\"period0.weatherPrimary\");\n    //console.log(period0[\"weatherPrimary\"]);\n    //console.log(\"period1.weatherPrimary\");\n    //console.log(period1[\"weatherPrimary\"]);\n    \n    msg0.forecast = period0[\"weatherPrimary\"];\n    msg1.forecast = period1[\"weatherPrimary\"];\n    \n    msg0.pop = Math.max(period0[\"pop\"], period1[\"pop\"]);\n    msg0.precip = period0[\"precipIN\"] + period1[\"precipIN\"] + \n        period0[\"precipMM\"] + period1[\"precipMM\"]\n    \n    node.send([msg0, msg1]);\n    node.done();\n});\n\nreturn;",
         "outputs": 2,
         "timeout": "",
         "noerr": 0,
@@ -4177,7 +4134,7 @@
         "z": "8eb51985a4dd8f36",
         "g": "de6cb0dace440ad6",
         "name": "current conditions",
-        "func": "const aeris = new aw.AerisWeather(global.get(\"aw_client_id\"), global.get(\"aw_client_secret\"));\n\n// create the request instance\nconst request = aeris.api();\n\n// configure the conditions endpoint\nrequest.endpoint('conditions');\n\n// set the place to request data for\nlatlong = global.get(\"lattitude\") + \",\" + global.get(\"longitude\");\n//console.log('latlong = ' + latlong);\nrequest.place(latlong);\n\n// configure the request options\nrequest.filter('1min').plimit(1);\n\nmsg1 = {};\nmsg2 = {};\nmsg3 = {};\n\n// perform the request and output the data\nrequest.get().then((result) => {\n    // returned data will be accessible on `result.data` \n    period = result.data[0]['periods'][0];\n\n    switch (period.cloudsCoded) {\n    case \"CL\":\n        msg1.payload = \"clear\";\n        msg2.payload = 0;\n        msg3.payload = 1;      \n        break;\n     case \"FW\":\n        msg1.payload = \"mostly clear\";\n        msg2.payload = 10;\n        msg3.payload = 1;      \n        break;\n     case \"SC\":\n        msg1.payload = \"partly cloudy\";\n        msg2.payload = 50;\n        msg3.payload = 2;      \n        break;\n    case \"BK\":\n        msg1.payload = \"mostly cloudy\";\n        msg2.payload = 75;\n        msg3.payload = 2;      \n        break;\n    case \"OV\":\n        msg1.payload = \"overcast\";\n        msg2.payload = 100;\n        msg3.payload = 3;      \n        break;\n    default:\n        console.log(\"Unknown cloud code: \" + period.cloudsCoded);\n        msg1.payload = \"uknoown\";\n        msg2.payload = 100;\n        msg3.payload = 3;\n    }\n    node.send([msg1, msg2, msg3]);\n    node.done();\n});\n\nreturn;",
+        "func": "const aeris = new aw.AerisWeather(env.get(\"ASTRODASH_AERIS_WEATHER_CLIENT_ID\"), env.get(\"ASTRODASH_AERIS_WEATHER_CLIENT_SECRET\"));\n\n// create the request instance\nconst request = aeris.api();\n\n// configure the conditions endpoint\nrequest.endpoint('conditions');\n\n// set the place to request data for\nlatlong = global.get(\"lattitude\") + \",\" + global.get(\"longitude\");\n//console.log('latlong = ' + latlong);\nrequest.place(latlong);\n\n// configure the request options\nrequest.filter('1min').plimit(1);\n\nmsg1 = {};\nmsg2 = {};\nmsg3 = {};\n\n// perform the request and output the data\nrequest.get().then((result) => {\n    // returned data will be accessible on `result.data` \n    period = result.data[0]['periods'][0];\n    //console.log(JSON.stringify(period));\n\n    switch (period.cloudsCoded) {\n    case \"CL\":\n        msg1.payload = \"clear\";\n        msg2.payload = 0;\n        msg3.payload = 1;      \n        break;\n     case \"FW\":\n        msg1.payload = \"mostly clear\";\n        msg2.payload = 10;\n        msg3.payload = 1;      \n        break;\n     case \"SC\":\n        msg1.payload = \"partly cloudy\";\n        msg2.payload = 50;\n        msg3.payload = 2;      \n        break;\n    case \"BK\":\n        msg1.payload = \"mostly cloudy\";\n        msg2.payload = 75;\n        msg3.payload = 2;      \n        break;\n    case \"OV\":\n        msg1.payload = \"overcast\";\n        msg2.payload = 100;\n        msg3.payload = 3;      \n        break;\n    default:\n        console.log(\"Unknown cloud code: \" + period.cloudsCoded);\n        msg1.payload = \"uknoown\";\n        msg2.payload = 100;\n        msg3.payload = 3;\n    }\n    node.send([msg1, msg2, msg3]);\n    node.done();\n});\n\nreturn;",
         "outputs": 3,
         "timeout": "",
         "noerr": 0,
@@ -4677,7 +4634,7 @@
         "z": "8eb51985a4dd8f36",
         "g": "c1e7d7a53540c7e9",
         "name": "construct radar url",
-        "func": "msg.url = \"https://maps.aerisapi.com/\" + \n    global.get(\"aw_client_id\") + \"_\" +\n    global.get(\"aw_client_secret\") +\n    \"/radar/256x256/\" +\n    global.get(\"lattitude\") + \",\" +\n    global.get(\"longitude\") + \",\" +\n    global.get(\"map_zoom\") +\n    \"/current.png\";\n    \nreturn msg;",
+        "func": "msg.url = \"https://maps.aerisapi.com/\" + \n    env.get(\"ASTRODASH_AERIS_WEATHER_CLIENT_ID\") + \"_\" +\n    env.get(\"ASTRODASH_AERIS_WEATHER_CLIENT_SECRET\") +\n    \"/radar/256x256/\" +\n    global.get(\"lattitude\") + \",\" +\n    global.get(\"longitude\") + \",\" +\n    global.get(\"map_zoom\") +\n    \"/current.png\";\n    \nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4717,7 +4674,7 @@
         "z": "8eb51985a4dd8f36",
         "g": "5f18ba0bfe61afbc",
         "name": "construct IR clouds url",
-        "func": "map_zoom = parseInt(global.get(\"map_zoom\"));\n\nmsg.url = \"https://maps.aerisapi.com/\" + \n    global.get(\"aw_client_id\") + \"_\" +\n    global.get(\"aw_client_secret\") +\n    \"/satellite-geocolor/256x256/\" +\n    global.get(\"lattitude\") + \",\" +\n    global.get(\"longitude\") + \",\" +\n    map_zoom +\n    \"/current.png\";\n    \nreturn msg;",
+        "func": "map_zoom = parseInt(global.get(\"map_zoom\"));\n\nmsg.url = \"https://maps.aerisapi.com/\" + \n    env.get(\"ASTRODASH_AERIS_WEATHER_CLIENT_ID\") + \"_\" +\n    env.get(\"ASTRODASH_AERIS_WEATHER_CLIENT_SECRET\") +\n    \"/satellite-geocolor/256x256/\" +\n    global.get(\"lattitude\") + \",\" +\n    global.get(\"longitude\") + \",\" +\n    map_zoom +\n    \"/current.png\";\n    \nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4739,7 +4696,7 @@
         "z": "8eb51985a4dd8f36",
         "g": "5f18ba0bfe61afbc",
         "name": "cloud url",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -11568,7 +11525,7 @@
         "z": "e4020236b03afc18",
         "g": "e6e0dc19af167a95",
         "name": "initial graph load",
-        "func": "const api = new AmbientWeatherApi({\n  apiKey: global.get(\"ambw_api_key\"),\n  applicationKey: global.get(\"ambw_application_key\")\n})\n\napi.userDevices().then((devices) => {\n\n  devices.forEach((device) => {\n    // fetch the most recent data\n    api.deviceData(device.macAddress, {\n      limit: 2880\n    })\n    .then((deviceData) => {\n\n        temp_series = [];\n        dewpoint_series = [];      \n        humidity_series = [];\n        windspeed_series = [];\n        windgust_series = [];\n        winddir_series = [];\n        barom_series = [];\n        \n        deviceData.forEach((data) => {\n        \n            d = Date.parse(data.date);\n            \n            tempc = (data.tempf - 32) * 5 / 9;\n            temp_series.unshift({x: d, y: tempc});\n            dewpointc = (data.dewPoint - 32) * 5 / 9;\n            dewpoint_series.unshift({x: d, y: dewpointc});\n            \n            //dt = {x: d, y: data.humidity};\n            //console.log(JSON.stringify(dt, null, 4)); \n            humidity_series.unshift({x: d, y: data.humidity});\n \n            windspeed = data.windspeedmph * 1.609344;\n            windspeed_series.unshift({x: d, y: windspeed});\n            //windspeed_series.push({});\n            \n            windgust = data.windgustmph * 1.609344;\n            windgust_series.unshift({x: d, y: windgust});\n            //windgust_series.push({});\n                        \n            winddir_series.unshift({x: d, y: data.winddir});\n            winddir_series.unshift({});\n\n            barom = data.baromrelin * 33.864;\n            barom_series.unshift({x: d, y: barom});\n            \n        })\n\n        temp_msg = {};\n        hum_msg = {};\n        windspeed_msg = {};\n        winddir_msg = {};\n        barom_msg = {};\n        \n        temp_msg.payload = [{\n            \"series\": [\"Temperature\", \"Dew Point\"],\n            \"data\": [\n                temp_series,\n                dewpoint_series\n                ],\n            \"labels\": [\"Temp\", \"Dew Point\"]\n        }];   \n        \n        hum_msg.payload = [{\n            \"series\": [\"Humidity\"],\n            \"data\": [\n                humidity_series\n                ],\n            \"labels\": [\"Humidity\"]\n        }];   \n\n       windspeed_msg.payload = [{\n            \"series\": [\"Wind Speed\", \"Gust\"],\n            \"data\": [\n                windspeed_series,\n                windgust_series\n                ],\n            \"labels\": [\"Wind Speed\", \"Gust\"]\n        }];   \n\n        winddir_msg.payload = [{\n            \"series\": [\"Wind Direction\"],\n            \"data\": [\n                winddir_series\n                ],\n            \"labels\": [\"Wind Direction\"]\n        }]; \n        \n        barom_msg.payload = [{\n            \"series\": [\"Pressure\"],\n            \"data\": [\n                barom_series\n                ],\n            \"labels\": [\"Pressure\"]\n        }]; \n        \n        node.send([temp_msg, hum_msg, windspeed_msg, winddir_msg, barom_msg]);\n        node.done();\n    })\n  })\n})\n\n\nreturn;",
+        "func": "const api = new AmbientWeatherApi({\n  apiKey: env.get(\"ASTRODASH_AMBIENT_WEATHER_API_KEY\"),\n  applicationKey: env.get(\"ASTRODASH_AMBIENT_WEATHER_APPLICATION_KEY\")\n})\n\napi.userDevices().then((devices) => {\n\n  devices.forEach((device) => {\n    // fetch the most recent data\n    api.deviceData(device.macAddress, {\n      limit: 2880\n    })\n    .then((deviceData) => {\n\n        temp_series = [];\n        dewpoint_series = [];      \n        humidity_series = [];\n        windspeed_series = [];\n        windgust_series = [];\n        winddir_series = [];\n        barom_series = [];\n        \n        deviceData.forEach((data) => {\n        \n            d = Date.parse(data.date);\n            \n            tempc = (data.tempf - 32) * 5 / 9;\n            temp_series.unshift({x: d, y: tempc});\n            dewpointc = (data.dewPoint - 32) * 5 / 9;\n            dewpoint_series.unshift({x: d, y: dewpointc});\n            \n            //dt = {x: d, y: data.humidity};\n            //console.log(JSON.stringify(dt, null, 4)); \n            humidity_series.unshift({x: d, y: data.humidity});\n \n            windspeed = data.windspeedmph * 1.609344;\n            windspeed_series.unshift({x: d, y: windspeed});\n            //windspeed_series.push({});\n            \n            windgust = data.windgustmph * 1.609344;\n            windgust_series.unshift({x: d, y: windgust});\n            //windgust_series.push({});\n                        \n            winddir_series.unshift({x: d, y: data.winddir});\n            winddir_series.unshift({});\n\n            barom = data.baromrelin * 33.864;\n            barom_series.unshift({x: d, y: barom});\n            \n        })\n\n        temp_msg = {};\n        hum_msg = {};\n        windspeed_msg = {};\n        winddir_msg = {};\n        barom_msg = {};\n        \n        temp_msg.payload = [{\n            \"series\": [\"Temperature\", \"Dew Point\"],\n            \"data\": [\n                temp_series,\n                dewpoint_series\n                ],\n            \"labels\": [\"Temp\", \"Dew Point\"]\n        }];   \n        \n        hum_msg.payload = [{\n            \"series\": [\"Humidity\"],\n            \"data\": [\n                humidity_series\n                ],\n            \"labels\": [\"Humidity\"]\n        }];   \n\n       windspeed_msg.payload = [{\n            \"series\": [\"Wind Speed\", \"Gust\"],\n            \"data\": [\n                windspeed_series,\n                windgust_series\n                ],\n            \"labels\": [\"Wind Speed\", \"Gust\"]\n        }];   \n\n        winddir_msg.payload = [{\n            \"series\": [\"Wind Direction\"],\n            \"data\": [\n                winddir_series\n                ],\n            \"labels\": [\"Wind Direction\"]\n        }]; \n        \n        barom_msg.payload = [{\n            \"series\": [\"Pressure\"],\n            \"data\": [\n                barom_series\n                ],\n            \"labels\": [\"Pressure\"]\n        }]; \n        \n        node.send([temp_msg, hum_msg, windspeed_msg, winddir_msg, barom_msg]);\n        node.done();\n    })\n  })\n})\n\n\nreturn;",
         "outputs": 5,
         "timeout": "",
         "noerr": 0,
@@ -15272,7 +15229,7 @@
         "animate": false,
         "className": "",
         "x": 660,
-        "y": 160,
+        "y": 260,
         "wires": [
             [
                 "0be522eab72e0051",
@@ -15301,7 +15258,7 @@
         "to": "",
         "reg": false,
         "x": 930,
-        "y": 160,
+        "y": 260,
         "wires": [
             []
         ]
@@ -15322,7 +15279,7 @@
             "5e133a9a292e037c"
         ],
         "x": 825,
-        "y": 120,
+        "y": 220,
         "wires": []
     },
     {
@@ -15353,7 +15310,7 @@
         "animate": false,
         "className": "",
         "x": 660,
-        "y": 240,
+        "y": 340,
         "wires": [
             [
                 "0cc4794ff6f7f8a9",
@@ -15382,7 +15339,7 @@
         "to": "",
         "reg": false,
         "x": 910,
-        "y": 240,
+        "y": 340,
         "wires": [
             []
         ]
@@ -15398,7 +15355,7 @@
             "9595115d9ce15971"
         ],
         "x": 825,
-        "y": 200,
+        "y": 300,
         "wires": []
     },
     {
@@ -15429,7 +15386,7 @@
         "animate": false,
         "className": "",
         "x": 630,
-        "y": 320,
+        "y": 420,
         "wires": [
             [
                 "c0fd6bf828b1f6fb",
@@ -15458,7 +15415,7 @@
         "to": "",
         "reg": false,
         "x": 900,
-        "y": 320,
+        "y": 420,
         "wires": [
             []
         ]
@@ -15479,7 +15436,7 @@
             "cd3ae8e731fc5c28"
         ],
         "x": 815,
-        "y": 280,
+        "y": 380,
         "wires": []
     },
     {
@@ -15510,7 +15467,7 @@
         "animate": false,
         "className": "",
         "x": 630,
-        "y": 400,
+        "y": 500,
         "wires": [
             [
                 "f1f1ae5c06478077",
@@ -15539,7 +15496,7 @@
         "to": "",
         "reg": false,
         "x": 890,
-        "y": 400,
+        "y": 500,
         "wires": [
             []
         ]
@@ -15560,7 +15517,7 @@
             "814395124372c18d"
         ],
         "x": 815,
-        "y": 360,
+        "y": 460,
         "wires": []
     },
     {
@@ -15731,89 +15688,10 @@
         ]
     },
     {
-        "id": "192184e5f1c5fe64",
-        "type": "ui_text_input",
-        "z": "1b5ddca5773a54ff",
-        "g": "a82a4b570ea2a091",
-        "name": "client ID",
-        "label": "Client ID",
-        "tooltip": "Aeris Weather API Client ID",
-        "group": "dd7df2b889616f2c",
-        "order": 1,
-        "width": "0",
-        "height": "0",
-        "passthru": true,
-        "mode": "text",
-        "delay": "0",
-        "topic": "",
-        "sendOnBlur": true,
-        "className": "",
-        "topicType": "str",
-        "x": 600,
-        "y": 560,
-        "wires": [
-            [
-                "cdcc47da57f657b4"
-            ]
-        ]
-    },
-    {
-        "id": "cdcc47da57f657b4",
-        "type": "change",
-        "z": "1b5ddca5773a54ff",
-        "g": "a82a4b570ea2a091",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "aw_client_id",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 820,
-        "y": 560,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e2a4af863e96b514",
-        "type": "ui_text_input",
-        "z": "1b5ddca5773a54ff",
-        "g": "a82a4b570ea2a091",
-        "name": "client secret",
-        "label": "Client Secret",
-        "tooltip": "Aeris Weather API Client Secret",
-        "group": "dd7df2b889616f2c",
-        "order": 3,
-        "width": "0",
-        "height": "0",
-        "passthru": true,
-        "mode": "text",
-        "delay": "0",
-        "topic": "",
-        "sendOnBlur": true,
-        "className": "",
-        "topicType": "str",
-        "x": 610,
-        "y": 600,
-        "wires": [
-            [
-                "1b2e264647e2677e"
-            ]
-        ]
-    },
-    {
         "id": "1b2e264647e2677e",
         "type": "change",
         "z": "1b5ddca5773a54ff",
+        "d": true,
         "g": "a82a4b570ea2a091",
         "name": "",
         "rules": [
@@ -15831,7 +15709,7 @@
         "to": "",
         "reg": false,
         "x": 840,
-        "y": 600,
+        "y": 620,
         "wires": [
             []
         ]
@@ -15857,7 +15735,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 640,
+        "y": 660,
         "wires": [
             []
         ]
@@ -15984,7 +15862,7 @@
         "topicType": "msg",
         "className": "",
         "x": 620,
-        "y": 640,
+        "y": 660,
         "wires": [
             [
                 "43454f7d5c222c5b"
@@ -16006,7 +15884,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 910,
-        "y": 720,
+        "y": 740,
         "wires": []
     },
     {
@@ -16027,7 +15905,7 @@
         "senderr": false,
         "headers": [],
         "x": 670,
-        "y": 760,
+        "y": 780,
         "wires": [
             [
                 "c484149d58b2a829",
@@ -16048,7 +15926,7 @@
         "overwriteFile": "true",
         "encoding": "none",
         "x": 1160,
-        "y": 760,
+        "y": 780,
         "wires": [
             []
         ]
@@ -16068,7 +15946,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1140,
-        "y": 720,
+        "y": 740,
         "wires": []
     },
     {
@@ -16093,7 +15971,7 @@
         "object": "str",
         "objectout": "msg",
         "x": 930,
-        "y": 760,
+        "y": 780,
         "wires": [
             [
                 "144b953530473380",
@@ -16115,7 +15993,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 760,
+        "y": 780,
         "wires": [
             [
                 "3f38b8ee0b51c46e",
@@ -16138,7 +16016,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 600,
-        "y": 720,
+        "y": 740,
         "wires": []
     },
     {
@@ -16163,7 +16041,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 150,
-        "y": 800,
+        "y": 820,
         "wires": [
             [
                 "af9b954a5dd7b7a7",
@@ -16186,7 +16064,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 910,
-        "y": 820,
+        "y": 840,
         "wires": []
     },
     {
@@ -16207,7 +16085,7 @@
         "senderr": false,
         "headers": [],
         "x": 670,
-        "y": 860,
+        "y": 880,
         "wires": [
             [
                 "d02a7cf408cbc3d7",
@@ -16228,7 +16106,7 @@
         "overwriteFile": "true",
         "encoding": "none",
         "x": 1160,
-        "y": 860,
+        "y": 880,
         "wires": [
             []
         ]
@@ -16248,7 +16126,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1140,
-        "y": 820,
+        "y": 840,
         "wires": []
     },
     {
@@ -16273,7 +16151,7 @@
         "object": "str",
         "objectout": "msg",
         "x": 930,
-        "y": 860,
+        "y": 880,
         "wires": [
             [
                 "73788774518c19ee",
@@ -16295,7 +16173,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 860,
+        "y": 880,
         "wires": [
             [
                 "fcb70abe92301986",
@@ -16318,66 +16196,8 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 600,
-        "y": 820,
+        "y": 840,
         "wires": []
-    },
-    {
-        "id": "03d9ec4677712554",
-        "type": "inject",
-        "z": "1b5ddca5773a54ff",
-        "g": "a82a4b570ea2a091",
-        "name": "inject once at startup",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 200,
-        "y": 560,
-        "wires": [
-            [
-                "a055499e7d9d92bf"
-            ]
-        ]
-    },
-    {
-        "id": "a055499e7d9d92bf",
-        "type": "change",
-        "z": "1b5ddca5773a54ff",
-        "g": "a82a4b570ea2a091",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "aw_client_id",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 430,
-        "y": 560,
-        "wires": [
-            [
-                "192184e5f1c5fe64"
-            ]
-        ]
     },
     {
         "id": "ebb4b5ce7c56b276",
@@ -16386,67 +16206,9 @@
         "g": "a82a4b570ea2a091",
         "name": "Aeris Weather Settings",
         "info": "",
-        "x": 240,
-        "y": 500,
+        "x": 220,
+        "y": 600,
         "wires": []
-    },
-    {
-        "id": "c31cb9ee8501a6da",
-        "type": "inject",
-        "z": "1b5ddca5773a54ff",
-        "g": "a82a4b570ea2a091",
-        "name": "inject once at startup",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 200,
-        "y": 600,
-        "wires": [
-            [
-                "ea7d1c56f7c26c4e"
-            ]
-        ]
-    },
-    {
-        "id": "ea7d1c56f7c26c4e",
-        "type": "change",
-        "z": "1b5ddca5773a54ff",
-        "g": "a82a4b570ea2a091",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "aw_client_secret",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 430,
-        "y": 600,
-        "wires": [
-            [
-                "e2a4af863e96b514"
-            ]
-        ]
     },
     {
         "id": "90e8324e29722d59",
@@ -16471,7 +16233,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 200,
-        "y": 640,
+        "y": 660,
         "wires": [
             [
                 "aca3155682d9d653"
@@ -16499,7 +16261,7 @@
         "to": "",
         "reg": false,
         "x": 430,
-        "y": 640,
+        "y": 660,
         "wires": [
             [
                 "c5f41daf91a1ac14"
@@ -16725,7 +16487,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 200,
-        "y": 160,
+        "y": 260,
         "wires": [
             [
                 "84d5d14387044d21"
@@ -16753,7 +16515,7 @@
         "to": "",
         "reg": false,
         "x": 430,
-        "y": 160,
+        "y": 260,
         "wires": [
             [
                 "8a0237d5ee697d65"
@@ -16783,7 +16545,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 200,
-        "y": 240,
+        "y": 340,
         "wires": [
             [
                 "17625551a3999979"
@@ -16811,7 +16573,7 @@
         "to": "",
         "reg": false,
         "x": 430,
-        "y": 240,
+        "y": 340,
         "wires": [
             [
                 "70e17fd303e2e3cd"
@@ -16841,7 +16603,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 200,
-        "y": 320,
+        "y": 420,
         "wires": [
             [
                 "269735e8183dbb11"
@@ -16869,7 +16631,7 @@
         "to": "",
         "reg": false,
         "x": 430,
-        "y": 320,
+        "y": 420,
         "wires": [
             [
                 "df46eaf91e5e3350"
@@ -16899,7 +16661,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 200,
-        "y": 400,
+        "y": 500,
         "wires": [
             [
                 "d9c3231d21697d9e"
@@ -16927,7 +16689,7 @@
         "to": "",
         "reg": false,
         "x": 430,
-        "y": 400,
+        "y": 500,
         "wires": [
             [
                 "db2fc9f1efa68c0d"
@@ -16942,7 +16704,7 @@
         "name": "Units",
         "info": "",
         "x": 270,
-        "y": 100,
+        "y": 200,
         "wires": []
     },
     {
@@ -16964,8 +16726,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "str",
-        "x": 630,
-        "y": 1060,
+        "x": 610,
+        "y": 1040,
         "wires": [
             [
                 "bca0cbdf3dd5b653"
@@ -16992,8 +16754,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 890,
-        "y": 1060,
+        "x": 870,
+        "y": 1040,
         "wires": [
             []
         ]
@@ -17020,8 +16782,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 220,
-        "y": 1060,
+        "x": 200,
+        "y": 1040,
         "wires": [
             [
                 "595e208908f5e885"
@@ -17048,8 +16810,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 1060,
+        "x": 430,
+        "y": 1040,
         "wires": [
             [
                 "faed14773908b694"
@@ -17075,8 +16837,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "str",
-        "x": 620,
-        "y": 1100,
+        "x": 600,
+        "y": 1080,
         "wires": [
             [
                 "32a31868d9e39488"
@@ -17103,8 +16865,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 870,
-        "y": 1100,
+        "x": 850,
+        "y": 1080,
         "wires": [
             []
         ]
@@ -17131,8 +16893,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 220,
-        "y": 1100,
+        "x": 200,
+        "y": 1080,
         "wires": [
             [
                 "42c78a0ce2712054"
@@ -17159,8 +16921,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 1100,
+        "x": 430,
+        "y": 1080,
         "wires": [
             [
                 "8e3ff2a45e3b3dde"
@@ -17174,8 +16936,8 @@
         "g": "7b7daee5ba90ac98",
         "name": "Systems",
         "info": "",
-        "x": 200,
-        "y": 1000,
+        "x": 180,
+        "y": 980,
         "wires": []
     },
     {
@@ -17197,8 +16959,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "str",
-        "x": 650,
-        "y": 1140,
+        "x": 630,
+        "y": 1120,
         "wires": [
             [
                 "3616110661b8f1a9"
@@ -17225,8 +16987,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 900,
-        "y": 1140,
+        "x": 880,
+        "y": 1120,
         "wires": [
             []
         ]
@@ -17253,8 +17015,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 220,
-        "y": 1140,
+        "x": 200,
+        "y": 1120,
         "wires": [
             [
                 "736d9a09a1cda93a"
@@ -17281,8 +17043,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 1140,
+        "x": 430,
+        "y": 1120,
         "wires": [
             [
                 "0d18ddaca041038d"
@@ -17290,253 +17052,21 @@
         ]
     },
     {
-        "id": "3b6b7c8cb96334cf",
-        "type": "ui_text_input",
-        "z": "1b5ddca5773a54ff",
-        "g": "ed637ef102bca13d",
-        "name": "api key",
-        "label": "API Key",
-        "tooltip": "Ambient Weather API Key",
-        "group": "30ae618a5027ffdc",
-        "order": 1,
-        "width": "0",
-        "height": "0",
-        "passthru": true,
-        "mode": "text",
-        "delay": "0",
-        "topic": "",
-        "sendOnBlur": true,
-        "className": "",
-        "topicType": "str",
-        "x": 620,
-        "y": 1300,
-        "wires": [
-            [
-                "d7540ece41db2438"
-            ]
-        ]
-    },
-    {
-        "id": "d7540ece41db2438",
-        "type": "change",
-        "z": "1b5ddca5773a54ff",
-        "g": "ed637ef102bca13d",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "ambw_api_key",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 850,
-        "y": 1300,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e2bdb0e079ef28c8",
-        "type": "ui_text_input",
-        "z": "1b5ddca5773a54ff",
-        "g": "ed637ef102bca13d",
-        "name": "application key",
-        "label": "Application Key",
-        "tooltip": "Ambient Weather Application Key",
-        "group": "30ae618a5027ffdc",
-        "order": 3,
-        "width": "0",
-        "height": "0",
-        "passthru": true,
-        "mode": "text",
-        "delay": "0",
-        "topic": "",
-        "sendOnBlur": true,
-        "className": "",
-        "topicType": "str",
-        "x": 640,
-        "y": 1340,
-        "wires": [
-            [
-                "d9110bb83650b288"
-            ]
-        ]
-    },
-    {
-        "id": "d9110bb83650b288",
-        "type": "change",
-        "z": "1b5ddca5773a54ff",
-        "g": "ed637ef102bca13d",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "ambw_application_key",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 880,
-        "y": 1340,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "07f01549568fee8e",
-        "type": "inject",
-        "z": "1b5ddca5773a54ff",
-        "g": "ed637ef102bca13d",
-        "name": "inject once at startup",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 220,
-        "y": 1300,
-        "wires": [
-            [
-                "fc8bfb5cf7faca5c"
-            ]
-        ]
-    },
-    {
-        "id": "fc8bfb5cf7faca5c",
-        "type": "change",
-        "z": "1b5ddca5773a54ff",
-        "g": "ed637ef102bca13d",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "ambw_api_key",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 450,
-        "y": 1300,
-        "wires": [
-            [
-                "3b6b7c8cb96334cf"
-            ]
-        ]
-    },
-    {
-        "id": "f6f364d406009a15",
-        "type": "inject",
-        "z": "1b5ddca5773a54ff",
-        "g": "ed637ef102bca13d",
-        "name": "inject once at startup",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 220,
-        "y": 1340,
-        "wires": [
-            [
-                "6468b7997342c13a"
-            ]
-        ]
-    },
-    {
-        "id": "6468b7997342c13a",
-        "type": "change",
-        "z": "1b5ddca5773a54ff",
-        "g": "ed637ef102bca13d",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "ambw_application_key",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 450,
-        "y": 1340,
-        "wires": [
-            [
-                "e2bdb0e079ef28c8"
-            ]
-        ]
-    },
-    {
-        "id": "a05091e0197c0c13",
-        "type": "comment",
-        "z": "1b5ddca5773a54ff",
-        "g": "ed637ef102bca13d",
-        "name": "Ambient Weather Settings",
-        "info": "",
-        "x": 290,
-        "y": 1260,
-        "wires": []
-    },
-    {
         "id": "4254b9eb76f28133",
         "type": "ui_text",
         "z": "1b5ddca5773a54ff",
+        "g": "8bebfaafc473c3bc",
         "group": "8c89d3080f48bc7a",
         "order": 0,
         "width": 0,
         "height": 0,
         "name": "version",
         "label": "Version",
-        "format": "{{global.version}}",
+        "format": "{{msg.payload}}",
         "layout": "col-center",
         "className": "",
-        "x": 1060,
-        "y": 20,
+        "x": 460,
+        "y": 100,
         "wires": []
     },
     {
@@ -17558,8 +17088,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "str",
-        "x": 650,
-        "y": 1540,
+        "x": 630,
+        "y": 1260,
         "wires": [
             [
                 "ebeeb4aed08381fd"
@@ -17586,8 +17116,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 970,
-        "y": 1540,
+        "x": 950,
+        "y": 1260,
         "wires": [
             []
         ]
@@ -17614,8 +17144,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 220,
-        "y": 1540,
+        "x": 200,
+        "y": 1260,
         "wires": [
             [
                 "450cdb228274943e"
@@ -17642,8 +17172,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 1540,
+        "x": 430,
+        "y": 1260,
         "wires": [
             [
                 "2eefac8da5b2f65c"
@@ -17669,8 +17199,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "str",
-        "x": 640,
-        "y": 1580,
+        "x": 620,
+        "y": 1300,
         "wires": [
             [
                 "f8c15cb7e05aae5d"
@@ -17697,8 +17227,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 950,
-        "y": 1580,
+        "x": 930,
+        "y": 1300,
         "wires": [
             []
         ]
@@ -17725,8 +17255,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 220,
-        "y": 1580,
+        "x": 200,
+        "y": 1300,
         "wires": [
             [
                 "9fac72e78495e589"
@@ -17753,8 +17283,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 1580,
+        "x": 430,
+        "y": 1300,
         "wires": [
             [
                 "e7fd33537cfc9541"
@@ -17780,8 +17310,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "str",
-        "x": 670,
-        "y": 1620,
+        "x": 650,
+        "y": 1340,
         "wires": [
             [
                 "742f69094ec4d777"
@@ -17808,8 +17338,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 990,
-        "y": 1620,
+        "x": 970,
+        "y": 1340,
         "wires": [
             []
         ]
@@ -17836,8 +17366,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 220,
-        "y": 1620,
+        "x": 200,
+        "y": 1340,
         "wires": [
             [
                 "c96d2ae60b19cc8d"
@@ -17864,8 +17394,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 1620,
+        "x": 430,
+        "y": 1340,
         "wires": [
             [
                 "02e398b48cc15356"
@@ -17879,14 +17409,15 @@
         "g": "f84dae842559922c",
         "name": "Safety Settings",
         "info": "Some safety settings are confiurable to set the maximum safe values. Those are defined here.",
-        "x": 260,
-        "y": 1500,
+        "x": 240,
+        "y": 1220,
         "wires": []
     },
     {
         "id": "fe2f37ea1d172055",
         "type": "inject",
         "z": "1b5ddca5773a54ff",
+        "g": "8bebfaafc473c3bc",
         "name": "",
         "props": [
             {
@@ -17902,13 +17433,14 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "2.4.0",
+        "payload": "2.4.1",
         "payloadType": "str",
-        "x": 670,
-        "y": 20,
+        "x": 310,
+        "y": 60,
         "wires": [
             [
-                "6448d528379519e1"
+                "6448d528379519e1",
+                "4254b9eb76f28133"
             ]
         ]
     },
@@ -17916,6 +17448,7 @@
         "id": "6448d528379519e1",
         "type": "change",
         "z": "1b5ddca5773a54ff",
+        "g": "8bebfaafc473c3bc",
         "name": "",
         "rules": [
             {
@@ -17931,13 +17464,22 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 850,
-        "y": 20,
+        "x": 490,
+        "y": 60,
         "wires": [
-            [
-                "4254b9eb76f28133"
-            ]
+            []
         ]
+    },
+    {
+        "id": "da9f0f62d6a3aaf8",
+        "type": "comment",
+        "z": "1b5ddca5773a54ff",
+        "g": "8bebfaafc473c3bc",
+        "name": "Version Number",
+        "info": "",
+        "x": 260,
+        "y": 100,
+        "wires": []
     },
     {
         "id": "e5bb0ce4afa547ca",
