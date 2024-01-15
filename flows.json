@@ -168,6 +168,14 @@
         "env": []
     },
     {
+        "id": "f1f12ee3354c62ba",
+        "type": "tab",
+        "label": "UI: Home (db2)",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "faf1b8c759f6df3e",
         "type": "tab",
         "label": "wx: avg wind",
@@ -213,14 +221,6 @@
         "label": "wx: wind",
         "disabled": false,
         "info": "This handles the wind data from MQTT",
-        "env": []
-    },
-    {
-        "id": "4b5e71bc85f4993b",
-        "type": "tab",
-        "label": "Flow 2",
-        "disabled": false,
-        "info": "",
         "env": []
     },
     {
@@ -1501,12 +1501,16 @@
             "742f69094ec4d777",
             "9edf20a115d289b5",
             "c96d2ae60b19cc8d",
-            "910e95e4314ffc6e"
+            "910e95e4314ffc6e",
+            "467fa3504154ad71",
+            "ab47a7b345ef4bb2",
+            "312ad23330a7ace4",
+            "2a20ec939fb42132"
         ],
         "x": 54,
         "y": 1179,
         "w": 1092,
-        "h": 202
+        "h": 242
     },
     {
         "id": "a2163ad92881a024",
@@ -2235,6 +2239,37 @@
         "h": 122
     },
     {
+        "id": "42ea256f9645e7df",
+        "type": "group",
+        "z": "e25d9bb806c7d918",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "3bf847019d881685",
+            "5448f7f1e826e429",
+            "17dd69a5bf3134a7",
+            "c6f32c806e58ecbe",
+            "99e84a5e07a1b5ad",
+            "61f7d9a4e103ef5f",
+            "f3dc844726e1208c",
+            "11aa8a6089b82390",
+            "b9a5035af74bcec7",
+            "924bef1fbee64a36",
+            "d72970dc73177f49"
+        ],
+        "x": 834,
+        "y": 479,
+        "w": 1252,
+        "h": 302
+    },
+    {
         "id": "1e52f8af9bd8e83a",
         "type": "mqtt-broker",
         "name": "mqtt",
@@ -2486,9 +2521,9 @@
         "z": "fdfc9a4d8ebd2c5e",
         "name": "spacer",
         "group": "2dd7db31dc1fc228",
-        "order": 20,
+        "order": 21,
         "width": "6",
-        "height": "4"
+        "height": "3"
     },
     {
         "id": "d3cbce692066b3bd",
@@ -2657,15 +2692,6 @@
         "className": ""
     },
     {
-        "id": "f3a8a67ff0904e39",
-        "type": "ui_tab",
-        "name": "HOME",
-        "icon": "dashboard",
-        "order": 2,
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "24663d8dd5637396",
         "type": "ui_spacer",
         "z": "52253e7db7826624",
@@ -2705,6 +2731,62 @@
         "order": 4,
         "width": "6",
         "height": "1"
+    },
+    {
+        "id": "7763bbf6df0db9e7",
+        "type": "ui_spacer",
+        "z": "1b5ddca5773a54ff",
+        "name": "spacer",
+        "group": "b365f2b84477ee54",
+        "order": 6,
+        "width": "6",
+        "height": "1"
+    },
+    {
+        "id": "1585fce6039d50ed",
+        "type": "ui-base",
+        "name": "Imaging Dashboard",
+        "path": "/dashboard",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ]
+    },
+    {
+        "id": "6f9660ab4373c845",
+        "type": "ui-theme",
+        "name": "Theme Name",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094ce",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        }
+    },
+    {
+        "id": "e874c3ec8196267a",
+        "type": "ui-page",
+        "name": "Home",
+        "ui": "1585fce6039d50ed",
+        "path": "/",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "6f9660ab4373c845",
+        "order": -1,
+        "className": ""
+    },
+    {
+        "id": "ecd3d6dc353f615e",
+        "type": "ui-group",
+        "name": "Col 1",
+        "page": "e874c3ec8196267a",
+        "width": "6",
+        "height": "1",
+        "order": -1,
+        "showTitle": true,
+        "className": ""
     },
     {
         "id": "389f4b01e25f18eb",
@@ -3978,7 +4060,7 @@
         "type": "inject",
         "z": "8eb51985a4dd8f36",
         "g": "de6cb0dace440ad6",
-        "name": "",
+        "name": "every 10 minutes",
         "props": [
             {
                 "p": "payload"
@@ -3995,7 +4077,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 170,
+        "x": 190,
         "y": 2320,
         "wires": [
             [
@@ -7081,7 +7163,7 @@
         "z": "aebaef7bc30ec5d1",
         "g": "e291126cd41a8571",
         "name": "discovery in",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -7099,7 +7181,7 @@
         "z": "aebaef7bc30ec5d1",
         "g": "e291126cd41a8571",
         "name": "configured devices response",
-        "func": "msg.payload = {\n    \"AlpacaPort\": 1880\n}\n\nreturn msg;",
+        "func": "msg.payload = {\n    \"AlpacaPort\": 80\n}\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -7137,7 +7219,7 @@
         "z": "aebaef7bc30ec5d1",
         "g": "e291126cd41a8571",
         "name": "discovery out",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -7203,7 +7285,7 @@
         "z": "aebaef7bc30ec5d1",
         "g": "5d6e4e094ec46bde",
         "name": "api version in",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -7259,7 +7341,7 @@
         "z": "aebaef7bc30ec5d1",
         "g": "e6ac97ad456cdc8b",
         "name": "management description in",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -7277,7 +7359,7 @@
         "z": "aebaef7bc30ec5d1",
         "g": "c1442f4a6ef5a029",
         "name": "management configured devices in",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -7454,7 +7536,7 @@
         "z": "aebaef7bc30ec5d1",
         "g": "5d6e4e094ec46bde",
         "name": "api version out",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -7472,7 +7554,7 @@
         "z": "aebaef7bc30ec5d1",
         "g": "e6ac97ad456cdc8b",
         "name": "management description out",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -7490,7 +7572,7 @@
         "z": "aebaef7bc30ec5d1",
         "g": "c1442f4a6ef5a029",
         "name": "management configured devices out",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -15047,7 +15129,8 @@
         "name": "ui out: safe conditions",
         "mode": "link",
         "links": [
-            "4492eccee3c82cae"
+            "4492eccee3c82cae",
+            "f532ebe1043bc73c"
         ],
         "x": 1005,
         "y": 180,
@@ -15529,7 +15612,7 @@
         "label": "Alert to PushOver",
         "tooltip": "turn pushover alerts ton or off",
         "group": "2dd7db31dc1fc228",
-        "order": 19,
+        "order": 20,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -17300,7 +17383,7 @@
         "label": "Maximum Safe Average Wind Speed",
         "tooltip": "Enter the maximum safe wind speed (in whatever units you have configured)",
         "group": "b365f2b84477ee54",
-        "order": 5,
+        "order": 7,
         "width": "0",
         "height": "0",
         "passthru": true,
@@ -17433,7 +17516,7 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "2.4.1",
+        "payload": "2.5.0",
         "payloadType": "str",
         "x": 310,
         "y": 60,
@@ -17480,6 +17563,117 @@
         "x": 260,
         "y": 100,
         "wires": []
+    },
+    {
+        "id": "467fa3504154ad71",
+        "type": "ui_text_input",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "max ok avg wind speed",
+        "label": "Maximum OK (green)  Average Wind Speed",
+        "tooltip": "Enter the maximum OK wind speed (in whatever units you have configured)",
+        "group": "b365f2b84477ee54",
+        "order": 5,
+        "width": "0",
+        "height": "0",
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 650,
+        "y": 1380,
+        "wires": [
+            [
+                "ab47a7b345ef4bb2"
+            ]
+        ]
+    },
+    {
+        "id": "ab47a7b345ef4bb2",
+        "type": "change",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "max_ok_avg_wind_speed",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 970,
+        "y": 1380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "312ad23330a7ace4",
+        "type": "inject",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "inject once at startup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 1380,
+        "wires": [
+            [
+                "2a20ec939fb42132"
+            ]
+        ]
+    },
+    {
+        "id": "2a20ec939fb42132",
+        "type": "change",
+        "z": "1b5ddca5773a54ff",
+        "g": "f84dae842559922c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "max_ok_avg_wind_speed",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 1380,
+        "wires": [
+            [
+                "467fa3504154ad71"
+            ]
+        ]
     },
     {
         "id": "e5bb0ce4afa547ca",
@@ -17584,7 +17778,7 @@
         "type": "subflow:7ad337185da278c4",
         "z": "e25d9bb806c7d918",
         "name": "",
-        "x": 830,
+        "x": 870,
         "y": 260,
         "wires": [
             [
@@ -17593,7 +17787,8 @@
                 "3bf847019d881685",
                 "8d6a6a98b773bee3",
                 "bf8a5982650f34cc",
-                "b665ced28a5b60b1"
+                "b665ced28a5b60b1",
+                "e1564d3a0226472e"
             ]
         ]
     },
@@ -17604,6 +17799,7 @@
         "name": "extract and calibrate value",
         "func": "var sqm = msg.payload.substring(3,8)\n\nvar v=parseFloat(sqm);\nif (isNaN(v)) {\n    sqm=\"offline\";\n    msg.online=false;\n}\nelse if (sqm == 0) {\n    sqm=\"daylight\";\n    msg.online=true;\n}\nelse {\n    sqm=sqm-0.11;\n    msg.online=true;\n}\nmsg.payload=sqm;\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -17889,6 +18085,7 @@
         "id": "3bf847019d881685",
         "type": "switch",
         "z": "e25d9bb806c7d918",
+        "g": "42ea256f9645e7df",
         "name": "sun <= -18",
         "property": "sunAltitude",
         "propertyType": "global",
@@ -17905,7 +18102,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 865,
+        "x": 945,
         "y": 560,
         "wires": [
             [
@@ -17921,6 +18118,7 @@
         "id": "5448f7f1e826e429",
         "type": "file",
         "z": "e25d9bb806c7d918",
+        "g": "42ea256f9645e7df",
         "name": "",
         "filename": "/sqmstudy/moonsqm.csv",
         "filenameType": "str",
@@ -17928,7 +18126,7 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1870,
+        "x": 1950,
         "y": 700,
         "wires": [
             []
@@ -17938,15 +18136,16 @@
         "id": "17dd69a5bf3134a7",
         "type": "function",
         "z": "e25d9bb806c7d918",
+        "g": "42ea256f9645e7df",
         "name": "format data",
-        "func": "payload={\n    \"moonAltitude\":global.get(\"moonAltitude\"),\n    \"moonPhase\":Math.round(global.get(\"moonPhaseNumber\") * 1000)/10,\n    \"sqm\":msg.payload,\n    \"cloudCover\": global.get(\"cloudCover\")\n};\nmsg.payload=payload;\nreturn msg;",
+        "func": "payload={\n    \"timestamp\": Date.now(),\n    \"moonAltitude\":global.get(\"moonAltitude\"),\n    \"moonPhase\":Math.round(global.get(\"moonPhaseNumber\") * 1000)/10,\n    \"sqm\":msg.payload,\n    \"cloudCover\": global.get(\"cloudCover\")\n};\nmsg.payload=payload;\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1490,
+        "x": 1570,
         "y": 640,
         "wires": [
             [
@@ -17959,18 +18158,19 @@
         "id": "c6f32c806e58ecbe",
         "type": "csv",
         "z": "e25d9bb806c7d918",
+        "g": "42ea256f9645e7df",
         "name": "",
         "sep": ",",
         "hdrin": "",
         "hdrout": "none",
         "multi": "one",
         "ret": "\\n",
-        "temp": "moonAltitude,moonPhase,sqm,cloudCover",
+        "temp": "timestamp,moonAltitude,moonPhase,sqm,cloudCover",
         "skip": "0",
         "strings": true,
         "include_empty_strings": "",
         "include_null_values": "",
-        "x": 1670,
+        "x": 1750,
         "y": 660,
         "wires": [
             [
@@ -18000,6 +18200,7 @@
         "id": "99e84a5e07a1b5ad",
         "type": "debug",
         "z": "e25d9bb806c7d918",
+        "g": "42ea256f9645e7df",
         "name": "moon sqm study",
         "active": false,
         "tosidebar": true,
@@ -18009,7 +18210,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1750,
+        "x": 1830,
         "y": 600,
         "wires": []
     },
@@ -18030,6 +18231,7 @@
         "id": "61f7d9a4e103ef5f",
         "type": "debug",
         "z": "e25d9bb806c7d918",
+        "g": "42ea256f9645e7df",
         "name": "sqm study: sun not low enough",
         "active": false,
         "tosidebar": true,
@@ -18039,7 +18241,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
+        "x": 1010,
         "y": 740,
         "wires": []
     },
@@ -18047,6 +18249,7 @@
         "id": "f3dc844726e1208c",
         "type": "change",
         "z": "e25d9bb806c7d918",
+        "g": "42ea256f9645e7df",
         "name": "",
         "rules": [
             {
@@ -18062,7 +18265,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 870,
+        "x": 950,
         "y": 660,
         "wires": [
             [
@@ -18074,6 +18277,7 @@
         "id": "11aa8a6089b82390",
         "type": "switch",
         "z": "e25d9bb806c7d918",
+        "g": "42ea256f9645e7df",
         "name": "moon between -25 and 5",
         "property": "moonAltitude",
         "propertyType": "global",
@@ -18082,7 +18286,7 @@
                 "t": "btwn",
                 "v": "-25",
                 "vt": "num",
-                "v2": "5",
+                "v2": "15",
                 "v2t": "num"
             },
             {
@@ -18092,7 +18296,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1110,
+        "x": 1190,
         "y": 580,
         "wires": [
             [
@@ -18107,6 +18311,7 @@
         "id": "b9a5035af74bcec7",
         "type": "change",
         "z": "e25d9bb806c7d918",
+        "g": "42ea256f9645e7df",
         "name": "",
         "rules": [
             {
@@ -18122,7 +18327,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1210,
+        "x": 1290,
         "y": 660,
         "wires": [
             [
@@ -18134,6 +18339,7 @@
         "id": "924bef1fbee64a36",
         "type": "debug",
         "z": "e25d9bb806c7d918",
+        "g": "42ea256f9645e7df",
         "name": "moon out of range",
         "active": false,
         "tosidebar": true,
@@ -18143,7 +18349,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1410,
+        "x": 1490,
         "y": 720,
         "wires": []
     },
@@ -18203,9 +18409,10 @@
         "id": "d72970dc73177f49",
         "type": "comment",
         "z": "e25d9bb806c7d918",
+        "g": "42ea256f9645e7df",
         "name": "moon sqm study",
         "info": "This section is for helping Tom Palmer decide how to cope with the moon below the horizon for moon avoidance in Target Scheduler. It cam be removed when the sutdy is complete.",
-        "x": 1060,
+        "x": 1140,
         "y": 520,
         "wires": []
     },
@@ -18247,6 +18454,98 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "97301399c7c48fb5",
+        "type": "change",
+        "z": "e25d9bb806c7d918",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "max_sqm",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 1140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3a1ba1657971e7e3",
+        "type": "inject",
+        "z": "e25d9bb806c7d918",
+        "name": "reset",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 1140,
+        "wires": [
+            [
+                "97301399c7c48fb5"
+            ]
+        ]
+    },
+    {
+        "id": "e1564d3a0226472e",
+        "type": "switch",
+        "z": "e25d9bb806c7d918",
+        "name": "new best sqm?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "max_sqm",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 640,
+        "y": 880,
+        "wires": [
+            [
+                "77e4ab04a54523ad"
+            ]
+        ]
+    },
+    {
+        "id": "77e4ab04a54523ad",
+        "type": "link out",
+        "z": "e25d9bb806c7d918",
+        "name": "ui out: max sqm",
+        "mode": "link",
+        "links": [
+            "5a3fc79bb1045482"
+        ],
+        "x": 795,
+        "y": 880,
+        "wires": []
     },
     {
         "id": "82ab5e342cae5203",
@@ -18344,7 +18643,8 @@
             [
                 "dd271178332f0bcf",
                 "1293ac3e5457d2c7"
-            ]
+            ],
+            []
         ]
     },
     {
@@ -22046,7 +22346,7 @@
         "type": "ui_template",
         "z": "52253e7db7826624",
         "group": "76298aafad5dda82",
-        "name": "All Sky Styles",
+        "name": "colored text",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -22056,7 +22356,7 @@
         "resendOnRefresh": true,
         "templateScope": "global",
         "className": "",
-        "x": 1700,
+        "x": 1690,
         "y": 100,
         "wires": [
             []
@@ -22351,6 +22651,328 @@
         ]
     },
     {
+        "id": "3ca29015ccbc236f",
+        "type": "ui_text",
+        "z": "52253e7db7826624",
+        "group": "2dd7db31dc1fc228",
+        "order": 19,
+        "width": 0,
+        "height": 0,
+        "name": "best sqm",
+        "label": "Best SQM",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1820,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "5a3fc79bb1045482",
+        "type": "link in",
+        "z": "52253e7db7826624",
+        "name": "ui in: max sqm",
+        "links": [
+            "77e4ab04a54523ad"
+        ],
+        "x": 1685,
+        "y": 820,
+        "wires": [
+            [
+                "3ca29015ccbc236f"
+            ]
+        ]
+    },
+    {
+        "id": "f532ebe1043bc73c",
+        "type": "link in",
+        "z": "f1f12ee3354c62ba",
+        "name": "ui in (db2): safe conditions",
+        "links": [
+            "302cf52560850b43"
+        ],
+        "x": 185,
+        "y": 80,
+        "wires": [
+            [
+                "e8fc1993c520eec7"
+            ]
+        ]
+    },
+    {
+        "id": "e8fc1993c520eec7",
+        "type": "debug",
+        "z": "f1f12ee3354c62ba",
+        "name": "for db2 template",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "0705636ca9c501d0",
+        "type": "switch",
+        "z": "f1f12ee3354c62ba",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 350,
+        "y": 140,
+        "wires": [
+            [
+                "95be7eaa513e265c",
+                "36a250ca737f7ded"
+            ],
+            [
+                "5eb637ec843f1825",
+                "3370d6f6f1619764"
+            ]
+        ]
+    },
+    {
+        "id": "95be7eaa513e265c",
+        "type": "change",
+        "z": "f1f12ee3354c62ba",
+        "name": "safe conditions",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "<p class=\"good_color\">Safe Conditions</p>",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 100,
+        "wires": [
+            [
+                "4d11e5952b5dcdcf"
+            ]
+        ]
+    },
+    {
+        "id": "5eb637ec843f1825",
+        "type": "change",
+        "z": "f1f12ee3354c62ba",
+        "name": "unsafe conditions",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "<p class=\"bad_color\">Unsafe Conditions</p>",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 240,
+        "wires": [
+            [
+                "4d11e5952b5dcdcf"
+            ]
+        ]
+    },
+    {
+        "id": "8b77a25c6f3f8b2c",
+        "type": "inject",
+        "z": "f1f12ee3354c62ba",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "0705636ca9c501d0"
+            ]
+        ]
+    },
+    {
+        "id": "81c2aeec3ac42273",
+        "type": "inject",
+        "z": "f1f12ee3354c62ba",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "0705636ca9c501d0"
+            ]
+        ]
+    },
+    {
+        "id": "36a250ca737f7ded",
+        "type": "change",
+        "z": "f1f12ee3354c62ba",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "good_color",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "ui-property:class",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3370d6f6f1619764",
+        "type": "change",
+        "z": "f1f12ee3354c62ba",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "bad_color",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "ui-property:class",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4d11e5952b5dcdcf",
+        "type": "ui-text",
+        "z": "f1f12ee3354c62ba",
+        "group": "ecd3d6dc353f615e",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "safety conditions",
+        "label": "Safety Conditions",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "className": "",
+        "x": 830,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "9b892ea10bdfd2ac",
+        "type": "ui-template",
+        "z": "f1f12ee3354c62ba",
+        "group": "",
+        "page": "",
+        "ui": "1585fce6039d50ed",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "\n    /* define any styles here - supports raw CSS */\n    .good_color {\n        .color: green;\n    }    \n    .bad_color {\n        color: red;\n    }",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "site:style",
+        "className": "",
+        "x": 1380,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "2f21e9a056ca3622",
         "type": "mqtt in",
         "z": "faf1b8c759f6df3e",
@@ -22449,7 +23071,7 @@
         "order": 4,
         "width": "3",
         "height": "6",
-        "format": "<!--\npass msg.degrees, msg.speed, msg.speed_unit, msg.gust, msg.gustlabel, msg.label\n-->\n<script>\n    // Watch the incoming message and convert the degrees to a human readable compass direction\n    (function(scope){\n        scope.$watch('msg', function(msg) {\n            if(typeof(msg) === \"object\"){\n                // Convert the degrees to cardinal directions\n                var deg = msg.degrees;\n                var dirs = [\"N\",\"NNE\",\"NE\",\"ENE\",\"E\",\"ESE\",\"SE\",\"SSE\",\"S\",\"SSW\",\"SW\",\"WSW\",\"W\",\"WNW\",\"NW\",\"NNW\",\"N\"];\n                var idx = Math.round(deg*(dirs.length-1)/360);\n                scope.direction = dirs[idx];\n                \n                var spd = parseFloat(msg.speed);\n                var unit = msg.speed_unit;\n                //console.log('speed <' + spd + '>');\n                \n                if (spd == 0) {\n                    scope.arrowOpacity = 0.15;\n                    scope.boxShadow = '#eeeeee';\n                    //console.log('speed was zero for opacity check');\n                }\n                else {\n                    scope.arrowOpacity = 1;\n                    scope.boxShadow = '#000';\n                    //console.log('speed was NOT ZERO for opacity check');\n                }\n\n                if ((unit == \"KPH\" && spd <= 8) ||\n                         (unit == \"MPH\" && spd <= 5)) {\n                    scope.color = '#ccffcc';\n                    //console.log('speed was low for color check');                    \n                }\n                else if ((unit == \"KPH\" && spd <= 16) ||\n                         (unit == \"MPH\" && spd <= 10)) {\n                    scope.color = '#ffffb3';\n                    //console.log('speed was medium for color check');   \n                }\n                else if (unit == \"KPH\" ||\n                         unit == \"MPH\") {\n                    scope.color = '#ff9999';\n                    //console.log('speed was high for color check');   \n                }\n                else {\n                    scope.color = '#f0f0f0';\n                    //console.log('units were not known color check');   \n                }     \n                \n                if (spd == 0) {\n                    msg.speed = \"calm\";\n                }\n                \n                //$(\".{{label}}_compass_container\").css(\"background-color\",scope.color);\n            }\n    \t});\n    })(scope);\n    \n    // Hacks to improve the layout and make it cale\n    $(document).ready(function(){\n        setTimeout(function () {\n            // Remove the auto scrolling from the parent node\n            $(\".compass_container\").parent().css(\"overflow\",\"hidden\");\n        \n            // Adjust the color to match the theme base color by looking up the toolbar header background color;\n            $(\".compass_container .triangle\").css(\"border-bottom-color\",$(\"md-toolbar\").css(\"background-color\"));\n        \n            // Scale the compass into the box that it's being rendered in\n            // This CSS hack helps make sure the line & font size scales appropriately\n            // Based on the node's grid size\n            $(\".compass_container\").each(function(k,v){\n                var scaleWidth = $(v).parent().width() / $(v).width();\n                var scaleHeight = $(v).parent().height() / $(v).height();\n        \n                var translateX = ($(v).width() - $(v).parent().width()) / 2;\n                var translateY = ($(v).height() - $(v).parent().height()) / 2;\n        \n                $(v).css(\"transform\",\"translate(-\"+translateX+\"px,-\"+translateY+\"px) scale(\"+scaleWidth+\",\"+scaleHeight+\") \");\n            });\n            \n            $(\".compass_container\").css(\"display\",\"block\"); // Unhide it now that it's resized\n        }, 1000);\n    });\n</script>\n\n<div class=\"compass_container\">\n    <div class=\"nr-dashboard-text text_container\" style=\"background-color:{{color}}; box-shadow: inset 0px 0px 0px 5px {{boxShadow}}\">\n        <div style=\"font-size: 50%; color: black\">{{msg.speed_unit}}</div>\n        <div style=\"font-size: 120%; color: black\">{{msg.speed}}</div>\n        <div class=\"direction\" style=\"font-size: 50%; text-align: center; color: black\">{{msg.gustlabel}} {{msg.gust}}</div>\n        <div style=\"font-size: 100%; opacity: {{arrowOpacity}}; color: black\">{{direction}}</div>\n        <div style=\"font-size: 50%; color: black\">{{msg.label}}</div>\n    </div>\n    <div class=\"arrow\" style=\"transform: rotate({{msg.degrees}}deg); opacity: {{arrowOpacity}};\">\n      <div class=\"triangle\"></div>\n    </div>\n</div>",
+        "format": "<!--\npass msg.degrees, msg.speed, msg.speed_unit, msg.gust, msg.gustlabel, msg.label\n-->\n<script>\n    // Watch the incoming message and convert the degrees to a human readable compass direction\n    (function(scope){\n        scope.$watch('msg', function(msg) {\n            if(typeof(msg) === \"object\"){\n                // Convert the degrees to cardinal directions\n                var deg = msg.degrees;\n                var dirs = [\"N\",\"NNE\",\"NE\",\"ENE\",\"E\",\"ESE\",\"SE\",\"SSE\",\"S\",\"SSW\",\"SW\",\"WSW\",\"W\",\"WNW\",\"NW\",\"NNW\",\"N\"];\n                var idx = Math.round(deg*(dirs.length-1)/360);\n                scope.direction = dirs[idx];\n                \n                var spd = parseFloat(msg.speed);\n                var unit = msg.speed_unit;\n                //console.log('speed <' + spd + '>');\n                \n                if (spd == 0) {\n                    scope.arrowOpacity = 0.15;\n                    scope.boxShadow = '#eeeeee';\n                    //console.log('speed was zero for opacity check');\n                }\n                else {\n                    scope.arrowOpacity = 1;\n                    scope.boxShadow = '#000';\n                    //console.log('speed was NOT ZERO for opacity check');\n                }\n                \n                if (spd <= 8) {\n                    scope.color = '#ccffcc';\n                    //console.log('speed was low for color check');                    \n                }\n                else if (spd <= 10) {\n                    scope.color = '#ffffb3';\n                    //console.log('speed was medium for color check');   \n                }\n                else if (unit == \"KPH\" ||\n                         unit == \"MPH\") {\n                    scope.color = '#ff9999';\n                    //console.log('speed was high for color check');   \n                }\n                else {\n                    scope.color = '#f0f0f0';\n                    //console.log('units were not known color check');   \n                }     \n                \n                if (spd == 0) {\n                    msg.speed = \"calm\";\n                }\n                \n                //$(\".{{label}}_compass_container\").css(\"background-color\",scope.color);\n            }\n    \t});\n    })(scope);\n    \n    // Hacks to improve the layout and make it cale\n    $(document).ready(function(){\n        setTimeout(function () {\n            // Remove the auto scrolling from the parent node\n            $(\".compass_container\").parent().css(\"overflow\",\"hidden\");\n        \n            // Adjust the color to match the theme base color by looking up the toolbar header background color;\n            $(\".compass_container .triangle\").css(\"border-bottom-color\",$(\"md-toolbar\").css(\"background-color\"));\n        \n            // Scale the compass into the box that it's being rendered in\n            // This CSS hack helps make sure the line & font size scales appropriately\n            // Based on the node's grid size\n            $(\".compass_container\").each(function(k,v){\n                var scaleWidth = $(v).parent().width() / $(v).width();\n                var scaleHeight = $(v).parent().height() / $(v).height();\n        \n                var translateX = ($(v).width() - $(v).parent().width()) / 2;\n                var translateY = ($(v).height() - $(v).parent().height()) / 2;\n        \n                $(v).css(\"transform\",\"translate(-\"+translateX+\"px,-\"+translateY+\"px) scale(\"+scaleWidth+\",\"+scaleHeight+\") \");\n            });\n            \n            $(\".compass_container\").css(\"display\",\"block\"); // Unhide it now that it's resized\n        }, 1000);\n    });\n</script>\n\n<div class=\"compass_container\">\n    <div class=\"nr-dashboard-text text_container\" style=\"background-color:{{color}}; box-shadow: inset 0px 0px 0px 5px {{boxShadow}}\">\n        <div style=\"font-size: 50%; color: black\">{{msg.speed_unit}}</div>\n        <div style=\"font-size: 120%; color: black\">{{msg.speed}}</div>\n        <div class=\"direction\" style=\"font-size: 50%; text-align: center; color: black\">{{msg.gustlabel}} {{msg.gust}}</div>\n        <div style=\"font-size: 100%; opacity: {{arrowOpacity}}; color: black\">{{direction}}</div>\n        <div style=\"font-size: 50%; color: black\">{{msg.label}}</div>\n    </div>\n    <div class=\"arrow\" style=\"transform: rotate({{msg.degrees}}deg); opacity: {{arrowOpacity}};\">\n      <div class=\"triangle\"></div>\n    </div>\n</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -22497,6 +23119,7 @@
         "name": "create and format wind structure",
         "func": "var newmsg = {\n    \"speed\": msg.payload['windspeed'],\n    \"speed_unit\":msg.payload['unit'],\n    \"degrees\": msg.payload['weather/winddir_avg10m'],\n    \"gust\": msg.payload['windgust'],\n    \"label\": \"10m avg\",\n    \"gustlabel\": \"max gust today\"\n}\nreturn newmsg;\n",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
