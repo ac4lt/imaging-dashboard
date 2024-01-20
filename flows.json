@@ -2264,10 +2264,36 @@
             "924bef1fbee64a36",
             "d72970dc73177f49"
         ],
-        "x": 834,
-        "y": 479,
+        "x": 864,
+        "y": 699,
         "w": 1252,
         "h": 302
+    },
+    {
+        "id": "0948b255511f94de",
+        "type": "group",
+        "z": "e25d9bb806c7d918",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "3a1ba1657971e7e3",
+            "77e4ab04a54523ad",
+            "1b7a39bb497196d0",
+            "ce7ff9c60baf9727",
+            "54577bf16438dfde",
+            "52ea343242611b92"
+        ],
+        "x": 974,
+        "y": 79,
+        "w": 582,
+        "h": 202
     },
     {
         "id": "1e52f8af9bd8e83a",
@@ -17516,7 +17542,7 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "2.5.1",
+        "payload": "2.6.0",
         "payloadType": "str",
         "x": 310,
         "y": 60,
@@ -17702,7 +17728,7 @@
         "to": "",
         "reg": false,
         "x": 1520,
-        "y": 380,
+        "y": 600,
         "wires": [
             [
                 "dc4d0172d202093f"
@@ -17725,7 +17751,7 @@
         "repair": false,
         "outputs": 1,
         "x": 1310,
-        "y": 360,
+        "y": 580,
         "wires": [
             [
                 "e5bb0ce4afa547ca"
@@ -17743,7 +17769,7 @@
             "efaa571da65ced61"
         ],
         "x": 1665,
-        "y": 380,
+        "y": 600,
         "wires": []
     },
     {
@@ -17766,7 +17792,7 @@
         "to": "",
         "reg": false,
         "x": 1130,
-        "y": 360,
+        "y": 580,
         "wires": [
             [
                 "3b0b1a990b8283b0"
@@ -17778,8 +17804,8 @@
         "type": "subflow:7ad337185da278c4",
         "z": "e25d9bb806c7d918",
         "name": "",
-        "x": 830,
-        "y": 280,
+        "x": 850,
+        "y": 480,
         "wires": [
             [
                 "cc3349bba274f933",
@@ -17788,8 +17814,8 @@
                 "8d6a6a98b773bee3",
                 "bf8a5982650f34cc",
                 "b665ced28a5b60b1",
-                "e1564d3a0226472e",
-                "46866d2464214be5"
+                "46866d2464214be5",
+                "52ea343242611b92"
             ]
         ]
     },
@@ -17806,7 +17832,7 @@
         "finalize": "",
         "libs": [],
         "x": 740,
-        "y": 200,
+        "y": 420,
         "wires": [
             [
                 "9072091dcafe77c2"
@@ -17827,7 +17853,7 @@
         "trim": false,
         "tls": "",
         "x": 450,
-        "y": 200,
+        "y": 420,
         "wires": [
             [
                 "faae34ca39ccb49d",
@@ -17853,7 +17879,7 @@
         "payload": "rx",
         "payloadType": "str",
         "x": 120,
-        "y": 100,
+        "y": 320,
         "wires": [
             [
                 "278f99c776f72ad5"
@@ -17873,7 +17899,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 690,
-        "y": 160,
+        "y": 380,
         "wires": []
     },
     {
@@ -17886,7 +17912,7 @@
         ],
         "uncaught": false,
         "x": 1320,
-        "y": 400,
+        "y": 620,
         "wires": [
             [
                 "e5bb0ce4afa547ca"
@@ -17924,7 +17950,7 @@
         "repair": false,
         "outputs": 4,
         "x": 1150,
-        "y": 200,
+        "y": 420,
         "wires": [
             [
                 "41ffa0f5ca12b5ff"
@@ -17960,7 +17986,7 @@
         "to": "",
         "reg": false,
         "x": 1430,
-        "y": 140,
+        "y": 360,
         "wires": [
             [
                 "92585e090a463d03"
@@ -17987,7 +18013,7 @@
         "to": "",
         "reg": false,
         "x": 1390,
-        "y": 260,
+        "y": 480,
         "wires": [
             [
                 "92585e090a463d03"
@@ -18014,7 +18040,7 @@
         "to": "",
         "reg": false,
         "x": 1700,
-        "y": 180,
+        "y": 400,
         "wires": [
             [
                 "c8f3c0d181f2930a",
@@ -18036,7 +18062,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1930,
-        "y": 100,
+        "y": 320,
         "wires": []
     },
     {
@@ -18048,7 +18074,7 @@
             "87836f30e520d828"
         ],
         "x": 1465,
-        "y": 300,
+        "y": 520,
         "wires": [
             [
                 "2cbec44a2a6501e5"
@@ -18075,7 +18101,7 @@
         "to": "",
         "reg": false,
         "x": 1720,
-        "y": 240,
+        "y": 460,
         "wires": [
             [
                 "e4b6de8f61ab2df6"
@@ -18103,8 +18129,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 945,
-        "y": 560,
+        "x": 975,
+        "y": 780,
         "wires": [
             [
                 "11aa8a6089b82390"
@@ -18127,8 +18153,8 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1950,
-        "y": 700,
+        "x": 1980,
+        "y": 920,
         "wires": [
             []
         ]
@@ -18146,8 +18172,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1570,
-        "y": 640,
+        "x": 1600,
+        "y": 860,
         "wires": [
             [
                 "c6f32c806e58ecbe",
@@ -18171,8 +18197,8 @@
         "strings": true,
         "include_empty_strings": "",
         "include_null_values": "",
-        "x": 1750,
-        "y": 660,
+        "x": 1780,
+        "y": 880,
         "wires": [
             [
                 "5448f7f1e826e429"
@@ -18194,7 +18220,7 @@
         "expiry": "",
         "broker": "1e52f8af9bd8e83a",
         "x": 1090,
-        "y": 260,
+        "y": 480,
         "wires": []
     },
     {
@@ -18211,8 +18237,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1830,
-        "y": 600,
+        "x": 1860,
+        "y": 820,
         "wires": []
     },
     {
@@ -18225,7 +18251,7 @@
             "a832eac065789091"
         ],
         "x": 1055,
-        "y": 300,
+        "y": 520,
         "wires": []
     },
     {
@@ -18242,8 +18268,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
-        "y": 740,
+        "x": 1040,
+        "y": 960,
         "wires": []
     },
     {
@@ -18266,8 +18292,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 950,
-        "y": 660,
+        "x": 980,
+        "y": 880,
         "wires": [
             [
                 "61f7d9a4e103ef5f"
@@ -18297,8 +18323,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1190,
-        "y": 580,
+        "x": 1220,
+        "y": 800,
         "wires": [
             [
                 "17dd69a5bf3134a7"
@@ -18328,8 +18354,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1290,
-        "y": 660,
+        "x": 1320,
+        "y": 880,
         "wires": [
             [
                 "924bef1fbee64a36"
@@ -18350,8 +18376,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1490,
-        "y": 720,
+        "x": 1520,
+        "y": 940,
         "wires": []
     },
     {
@@ -18381,7 +18407,7 @@
         "to": "",
         "reg": false,
         "x": 230,
-        "y": 160,
+        "y": 380,
         "wires": [
             [
                 "43576dbaac2e1db3",
@@ -18403,7 +18429,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 160,
+        "y": 380,
         "wires": []
     },
     {
@@ -18413,8 +18439,8 @@
         "g": "42ea256f9645e7df",
         "name": "moon sqm study",
         "info": "This section is for helping Tom Palmer decide how to cope with the moon below the horizon for moon avoidance in Target Scheduler. It cam be removed when the sutdy is complete.",
-        "x": 1140,
-        "y": 520,
+        "x": 1170,
+        "y": 740,
         "wires": []
     },
     {
@@ -18428,7 +18454,7 @@
             "e90478ee1d18c595"
         ],
         "x": 1995,
-        "y": 200,
+        "y": 420,
         "wires": []
     },
     {
@@ -18451,32 +18477,7 @@
         "to": "",
         "reg": false,
         "x": 1120,
-        "y": 400,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "97301399c7c48fb5",
-        "type": "change",
-        "z": "e25d9bb806c7d918",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "max_sqm",
-                "pt": "global",
-                "to": "0",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 340,
-        "y": 1140,
+        "y": 620,
         "wires": [
             []
         ]
@@ -18485,7 +18486,8 @@
         "id": "3a1ba1657971e7e3",
         "type": "inject",
         "z": "e25d9bb806c7d918",
-        "name": "reset",
+        "g": "0948b255511f94de",
+        "name": "inject once on startup",
         "props": [
             {
                 "p": "payload"
@@ -18497,42 +18499,16 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 1140,
+        "payload": "0",
+        "payloadType": "num",
+        "x": 1120,
+        "y": 240,
         "wires": [
             [
-                "97301399c7c48fb5"
-            ]
-        ]
-    },
-    {
-        "id": "e1564d3a0226472e",
-        "type": "switch",
-        "z": "e25d9bb806c7d918",
-        "name": "new best sqm?",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "gt",
-                "v": "max_sqm",
-                "vt": "global"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 640,
-        "y": 880,
-        "wires": [
-            [
-                "1b7a39bb497196d0",
-                "ce7ff9c60baf9727"
+                "1b7a39bb497196d0"
             ]
         ]
     },
@@ -18540,27 +18516,29 @@
         "id": "77e4ab04a54523ad",
         "type": "link out",
         "z": "e25d9bb806c7d918",
+        "g": "0948b255511f94de",
         "name": "ui out: max sqm",
         "mode": "link",
         "links": [
             "5a3fc79bb1045482"
         ],
-        "x": 1075,
-        "y": 880,
+        "x": 1515,
+        "y": 180,
         "wires": []
     },
     {
         "id": "1b7a39bb497196d0",
         "type": "change",
         "z": "e25d9bb806c7d918",
+        "g": "0948b255511f94de",
         "name": "",
         "rules": [
             {
                 "t": "set",
-                "p": "max_sqm",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
+                "p": "payload",
+                "pt": "msg",
+                "to": "max_sqm",
+                "tot": "global"
             }
         ],
         "action": "",
@@ -18568,8 +18546,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 880,
-        "y": 880,
+        "x": 1330,
+        "y": 220,
         "wires": [
             [
                 "77e4ab04a54523ad"
@@ -18580,8 +18558,9 @@
         "id": "ce7ff9c60baf9727",
         "type": "debug",
         "z": "e25d9bb806c7d918",
+        "g": "0948b255511f94de",
         "name": "max sqm",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -18589,8 +18568,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 860,
-        "y": 820,
+        "x": 1380,
+        "y": 140,
         "wires": []
     },
     {
@@ -18598,7 +18577,7 @@
         "type": "debug",
         "z": "e25d9bb806c7d918",
         "name": "rounded sqm",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -18607,8 +18586,41 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1120,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "54577bf16438dfde",
+        "type": "comment",
+        "z": "e25d9bb806c7d918",
+        "g": "0948b255511f94de",
+        "name": "max sqm",
+        "info": "",
+        "x": 1080,
         "y": 120,
         "wires": []
+    },
+    {
+        "id": "52ea343242611b92",
+        "type": "function",
+        "z": "e25d9bb806c7d918",
+        "g": "0948b255511f94de",
+        "name": "extract and calibrate value",
+        "func": "sqm = parseFloat(msg.payload);\n\nif (isNaN(sqm)) {\n    sqm = 0;\n}\n\nif (sqm > global.get(\"max_sqm\")) {\n    global.set(\"max_sqm\", sqm);\n    msg.payload = sqm;\n    return msg;\n}\n\nreturn null",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 180,
+        "wires": [
+            [
+                "77e4ab04a54523ad",
+                "ce7ff9c60baf9727"
+            ]
+        ]
     },
     {
         "id": "82ab5e342cae5203",
@@ -19629,7 +19641,8 @@
         "wires": [
             [
                 "db7ca85792792739",
-                "e87a4aeb08afac25"
+                "e87a4aeb08afac25",
+                "54a8cc327c218805"
             ]
         ]
     },
@@ -19940,6 +19953,25 @@
         ],
         "x": 1165,
         "y": 380,
+        "wires": []
+    },
+    {
+        "id": "54a8cc327c218805",
+        "type": "ui_toast",
+        "z": "1da925b7efe5867b",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "sun event notification",
+        "x": 1080,
+        "y": 700,
         "wires": []
     },
     {
