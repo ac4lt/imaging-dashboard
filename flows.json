@@ -17542,7 +17542,7 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "2.6.0",
+        "payload": "2.6.1",
         "payloadType": "str",
         "x": 310,
         "y": 60,
@@ -19632,6 +19632,7 @@
         "name": "determine currrent and next sun events",
         "func": "sunAltitude = msg.sunAltitude;\nsunAzimuth = msg.sunAzimut;\nlastSunAltitude = flow.lastSunAltitude;\n\nif (sunAltitude <= -18) {\n    msg.currentSunEvent = \"night\";\n    msg.nextSunEventLabel = \"Astronomical Dawn at\";\n    msg.nextSunEventTime = msg.sunAstronomicalTwilightMorning;\n}\nelse if (sunAltitude <= -12) {\n   if (sunAzimuth < 180) {\n        msg.currentSunEvent = \"astronomical dawn\";\n        msg.nextSunEventLabel = \"Nautical Dawn at\";\n        msg.nextSunEventTime = msg.sunNauticalTwilightMorning;\n    }\n    else {\n        msg.currentSunEvent = \"astronomical dusk\";     \n        msg.nextSunEventLabel = \"Night at\";\n        msg.nextSunEventTime = msg.sunAstronomicalTwilightEvening;\n    }\n}\nelse if (sunAltitude <= -6) {\n    if (sunAzimuth < 180) {\n        msg.currentSunEvent = \"nautical dawn\";\n        msg.nextSunEventLabel = \"Civil Dawn at\";\n        msg.nextSunEventTime = msg.sunCivilTwilightMorning;\n    }\n    else {\n        msg.currentSunEvent = \"nautical dusk\";     \n        msg.nextSunEventLabel = \"Astronomical Dusk at\";\n        msg.nextSunEventTime = msg.sunNauticalTwilightEvening;\n    }   \n}\nelse if (sunAltitude <= 0) {\n    if (sunAzimuth < 180) {\n        msg.currentSunEvent = \"civil dawn\";\n        msg.nextSunEventLabel = \"Sunrise at\";\n        msg.nextSunEventTime = msg.sunRise;\n    }\n    else {\n        msg.currentSunEvent = \"civil dusk\";     \n        msg.nextSunEventLabel = \"Nautical Dusk at\";\n        msg.nextSunEventTime = msg.sunCivilTwilightEvening;\n    }   \n}\nelse {\n    msg.currentSunEvent = \"day\";\n    msg.nextSunEventLabel = \"Sunset at\";\n    msg.nextSunEventTime = msg.sunSet;\n}\n\nflow.lastSunAltitude = sunAltitude;\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -19642,7 +19643,7 @@
             [
                 "db7ca85792792739",
                 "e87a4aeb08afac25",
-                "54a8cc327c218805"
+                "4461f008f59d77f1"
             ]
         ]
     },
@@ -19970,9 +19971,36 @@
         "className": "",
         "topic": "",
         "name": "sun event notification",
-        "x": 1080,
-        "y": 700,
+        "x": 1400,
+        "y": 780,
         "wires": []
+    },
+    {
+        "id": "4461f008f59d77f1",
+        "type": "change",
+        "z": "1da925b7efe5867b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "currentSunEvent",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1150,
+        "y": 780,
+        "wires": [
+            [
+                "54a8cc327c218805"
+            ]
+        ]
     },
     {
         "id": "18cc350cf6cf726a",
